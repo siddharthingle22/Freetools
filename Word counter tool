@@ -1,0 +1,153 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <title>Advanced Word Counter Tool</title>
+    <style>
+        /* Minimalist Design Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+       {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+             /* Added max-width for better responsiveness */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            resize: none;
+            height: 150px;
+            box-sizing: border-box;
+            outline: none;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .placeholder-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .stats {
+           
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background-color: #f1f1f1;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1 1 calc(50% - 20px); /* Adjust flex basis for responsiveness */
+        }
+
+        .stat-item h2 {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #007bff;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Advanced Word Counter Tool</h1>
+            <p>Count words, characters, and paragraphs with ease.</p>
+        </div>
+        <div class="form-group">
+            <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+        </div>
+        <img separator="" src="&lt;div class=" style="clear: both;" /><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEVx5Sw6qXcMS8AO1UxLt2KWhNBV6TVl0p0aEvhjhqBZ2Dz4FIn6If4d1y0eF5byt4gLW8yDYQcMMX5T93NDKQOVhMHu5zfnG3PL17cbUrZz6PZQCxGJW6mT6gkyLTXMYVstfwcpRkm9Ktks9dShqQyTeJMTyTUuwOPaBbLxhc-9TEKlJ1mIq4yw0dQ_zD/s1024/1725359751451.png" style="display: block; padding: 1em 0; text-align: center;"><img alt="" border="0" data-original-height="1024" data-original-width="1024" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEVx5Sw6qXcMS8AO1UxLt2KWhNBV6TVl0p0aEvhjhqBZ2Dz4FIn6If4d1y0eF5byt4gLW8yDYQcMMX5T93NDKQOVhMHu5zfnG3PL17cbUrZz6PZQCxGJW6mT6gkyLTXMYVstfwcpRkm9Ktks9dShqQyTeJMTyTUuwOPaBbLxhc-9TEKlJ1mIq4yw0dQ_zD/s320/1725359751451.png" width="320" /></a></div>" alt="" class="placeholder-img"&gt;
+        <div class="stats">
+            <div class="stat-item">
+                <h2 id="wordCount">0</h2>
+                <p>Words</p>
+            </div>
+            <div class="stat-item">
+                <h2 id="charCount">0</h2>
+                <p>Characters (with spaces)</p>
+            </div>
+            <div class="stat-item">
+                <h2 id="charCountNoSpace">0</h2>
+                <p>Characters (without spaces)</p>
+            </div>
+            <div class="stat-item">
+                <h2 id="paragraphCount">0</h2>
+                <p>Paragraphs</p>
+            </div>
+        </div>
+    </body></html>
+
+    <script>
+        // JavaScript for Word Counter Tool
+        document.getElementById('textInput').addEventListener('input', function () {
+            const text = this.value.trim();
+            
+            // Word Count
+            const words = text.length > 0 ? text.split(/\s+/).length : 0;
+            document.getElementById('wordCount').textContent = words;
+
+            // Character Count with spaces
+            const charsWithSpaces = text.length;
+            document.getElementById('charCount').textContent = charsWithSpaces;
+
+            // Character Count without spaces
+            const charsNoSpaces = text.replace(/\s+/g, '').length;
+            document.getElementById('charCountNoSpace').textContent = charsNoSpaces;
+
+            // Paragraph Count
+            const paragraphs = text.split(/\n+/).filter(para => para.length > 0).length;
+            document.getElementById('paragraphCount').textContent = paragraphs;
+        });
+    </script>
+
+
